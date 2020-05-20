@@ -72,7 +72,7 @@ $(document).ready(function() {
         stop = true;
         $('#exercise').hide();
         $('#menu').show();
-      }, 20000);
+      }, 720000);
     }, 3000);
   };
 
