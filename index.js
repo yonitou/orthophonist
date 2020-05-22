@@ -22,11 +22,15 @@ $(document).ready(function() {
 
   function imagePop(exerciseId) {
     let $image = $(`#image${exerciseId}`);
+    if (exerciseId === 4 || exerciseId === 5) {
+      $image.show();
+    } else {
       const positionX = Math.random() * ($('#exercise').outerWidth() - $image.outerWidth());
       const positionY = Math.random() * ($('#exercise').outerHeight() - $image.outerHeight());
       $image.css("top",`${positionY}px`);
       $image.css("left",`${positionX}px`);
       $image.show();
+    }
       setTimeout(function () {
         $image.hide();
       }, 700);
@@ -64,6 +68,9 @@ $(document).ready(function() {
       counter = setInterval(timer, 1000);
       if (exerciseId === 3) {
         schedulePop(exerciseId);
+      } else if (exerciseId === 4 || exerciseId === 5) {
+        imagePop(exerciseId);
+        schedulePop(exerciseId);
       } else {
         imagePop(exerciseId);
         schedulePop(exerciseId);
@@ -96,6 +103,14 @@ $(document).ready(function() {
   $('#button3').on('click', function () {
     audio.play();
     launchExercise(3);
+  });
+
+  $('#button4').on('click', function () {
+    launchExercise(4);
+  });
+
+  $('#button5').on('click', function () {
+    launchExercise(5);
   });
 });
 
